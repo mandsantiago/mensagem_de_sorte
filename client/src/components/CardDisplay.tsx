@@ -1,14 +1,15 @@
 import { Card } from "@/data/cards";
-import { Share2, RefreshCw } from "lucide-react";
+import { RefreshCw } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 interface CardDisplayProps {
   card: Card;
   onRefresh: () => void;
-  onShare: (type: 'whatsapp' | 'stories') => void;
 }
 
-export default function CardDisplay({ card, onRefresh, onShare }: CardDisplayProps) {
+export default function CardDisplay({ card, onRefresh }: CardDisplayProps) {
+
+
   return (
     <div className="w-full max-w-2xl mx-auto">
       {/* Card Container */}
@@ -38,26 +39,10 @@ export default function CardDisplay({ card, onRefresh, onShare }: CardDisplayPro
           </div>
 
           {/* Action Buttons */}
-          <div className="flex flex-col sm:flex-row gap-4">
-            <Button
-              onClick={() => onShare('whatsapp')}
-              variant="outline"
-              className="flex-1 flex items-center justify-center gap-2 border-2 border-primary text-primary hover:bg-primary hover:text-white"
-            >
-              <Share2 size={18} />
-              Compartilhar WhatsApp
-            </Button>
-            <Button
-              onClick={() => onShare('stories')}
-              variant="outline"
-              className="flex-1 flex items-center justify-center gap-2 border-2 border-primary text-primary hover:bg-primary hover:text-white"
-            >
-              <Share2 size={18} />
-              Compartilhar Stories
-            </Button>
+          <div className="flex justify-center">
             <Button
               onClick={onRefresh}
-              className="flex-1 flex items-center justify-center gap-2 bg-accent text-accent-foreground hover:bg-accent/90"
+              className="flex items-center justify-center gap-2 bg-accent text-accent-foreground hover:bg-accent/90 px-8"
             >
               <RefreshCw size={18} />
               Nova Carta
